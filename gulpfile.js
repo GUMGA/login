@@ -42,7 +42,7 @@ function bundle_js(bundler) {
     .pipe(source('app.js'))
     .pipe(buffer())
     .pipe(gulp.dest('dist'))
-    .pipe(rename('gumga-layout.min.js'))
+    .pipe(rename('gumga-login.min.js'))
     .pipe(sourcemaps.init({ loadMaps: true }))
       // capture sourcemaps from transforms
     .pipe(uglify())
@@ -64,7 +64,7 @@ gulp.task('bundle-js-production', function () {
     .on('error', map_error)
     .pipe(source('app.js'))
     .pipe(buffer())
-    .pipe(rename('gumga-layout.min.js'))
+    .pipe(rename('gumga-login.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('dist'))
 })
