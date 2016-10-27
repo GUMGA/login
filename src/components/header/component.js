@@ -2,11 +2,12 @@ let HeaderComponent = {
   bindings: {
     register: '<',
     login: '<',
+    background: '@',
     logo: '@',
     title: '@'
   },
   template: `
-    <header class="header-login">
+    <header class="header-login" style="background-image: url({{$ctrl.background}})">
       <nav class="login-nav">
         <ul>
           <li>

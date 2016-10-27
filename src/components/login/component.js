@@ -1,6 +1,7 @@
 let LoginComponent = {
   bindings: {
-    onSubmit: '&'
+    onSubmit: '&',
+    forgot: '@'
   },
   template: `
     <section class="login-box">
@@ -17,7 +18,7 @@ let LoginComponent = {
         <label for="do-register">
           <button type="button" name="do-register" class="do-register">Registrar</button>
         </label>
-        <a class="forgot-password" href="#">Esqueceu a senha?</a>
+        <a class="forgot-password" ui-sref="{{$ctrl.forgot}}">Esqueceu a senha?</a>
       </form>
     </section>
   `,
