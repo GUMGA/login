@@ -1,7 +1,7 @@
 let HeaderComponent = {
   bindings: {
-    register: '<',
-    login: '<',
+    register: '@',
+    login: '@',
     background: '@',
     logo: '@',
     title: '@'
@@ -14,7 +14,7 @@ let HeaderComponent = {
             <a ui-srref="{{$ctrl.login}}" ui-sref-active="selected" title="Login" class="login"">Login</a>
           </li>
           <li>
-            <a ui-srref="{{$ctrl.register}}" ui-sref-active="selected" title="Cadastro" class="register">Cadastro</a>
+            <a ui-sref="{{$ctrl.register}}" ui-sref-active="selected" title="Cadastro" class="register">Cadastro</a>
           </li>
         </ul>
       </nav>
