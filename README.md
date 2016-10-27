@@ -34,9 +34,18 @@ bower install gumga-login
     title="Gumga Studio"
     ></gl-login-header>
 
-  <gl-login on-submit="loginGumga(login)"></gl-login>
+  <gl-login on-submit="loginGumga(login)" type="email" username="email" password="senha"></gl-login>
 </body>
 ```
+
+| Atributo | Descrição |
+| --- | --- |
+| register | Rota que será chamado o menu cadastrar |
+| login | Rota que será chamado o menu login |
+| background | Caminho da imagem que será usada de background |
+| logo | Caminho da imagem que será usada de logo |
+| title | Usado no atributo title da logo |
+
 
 ### Controller
 ```js

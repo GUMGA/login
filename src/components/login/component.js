@@ -1,16 +1,19 @@
 let LoginComponent = {
   bindings: {
     onSubmit: '&',
-    forgot: '@'
+    forgot: '@',
+    type: '@',
+    username: '@',
+    password: '@'
   },
   template: `
     <section class="login-box">
       <form name="login-form" class="login-form" data-ng-submit="$ctrl.submit($ctrl.login)" novalidate>
         <label for="username">
-          <input type="email" name="username" placeholder="E-mail" data-ng-model="$ctrl.login.username">
+          <input type="{{$ctrl.type}}" name="username" placeholder="E-mail" data-ng-model="$ctrl.login[$ctrl.username]">
         </label>
         <label for="password">
-          <input type="password" name="password" placeholder="Senha" data-ng-model="$ctrl.login.password">
+          <input type="password" name="password" placeholder="Senha" data-ng-model="$ctrl.login[$ctrl.password]">
         </label>
         <label for="do-login">
           <button type="submit" name="do-login" class="do-login">Entrar</button>
