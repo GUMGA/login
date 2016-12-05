@@ -8,9 +8,9 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     sourcemaps = require('gulp-sourcemaps'),
     gutil = require('gulp-util')
-    
-    
-    
+
+
+
 
 function map_error(err) {
   if (err.fileName) {
@@ -53,7 +53,6 @@ function bundle_js(bundler) {
 gulp.task('bundle-js', function () {
   var bundler = browserify('./src/components/index.js', { debug: true })
       .transform(babelify, {presets: ["es2015"]})
-
   return bundle_js(bundler)
 })
 
