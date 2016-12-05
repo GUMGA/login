@@ -1,1 +1,407 @@
-﻿@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,800");@font-face{font-family:'icomoon';src:url("../fonts/icomoon.eot?9rgdyr");src:url("../fonts/icomoon.eot?9rgdyr#iefix") format("embedded-opentype"),url("../fonts/icomoon.ttf?9rgdyr") format("truetype"),url("../fonts/icomoon.woff?9rgdyr") format("woff"),url("../fonts/icomoon.svg?9rgdyr#icomoon") format("svg");font-weight:normal;font-style:normal}[class^="icon-"],[class*=" icon-"]{font-family:'icomoon' !important;speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.icon-search:before{content:""}.icon-chat:before{content:""}.icon-register:before{content:""}.icon-menu:before{content:""}.icon-chevron-right:before{content:""}.icon-login:before{content:""}.icon-phone:before{content:""}.icon-circle-right:before{content:""}.icon-facebook:before{content:""}.icon-twitter:before{content:""}*{font-family:'Open Sans', sans-serif;box-sizing:border-box}body{background:#f5f5f5;margin:0;padding:0}.header-login{background:#fff url(../images/gumga-login-bg.jpg) no-repeat top center;background-size:cover;position:relative;min-height:380px}.header-login div.logo-box{background:#fff;position:relative;min-width:340px;text-align:center;display:table;border-radius:2px;margin:0 auto;-webkit-box-shadow:4px 4px 20px -5px rgba(0,0,0,0.55);-moz-box-shadow:4px 4px 20px -5px rgba(0,0,0,0.55);box-shadow:4px 4px 20px -5px rgba(0,0,0,0.55);margin-top:35px}@media (max-width: 576px){.header-login div.logo-box{box-sizing:border-box;min-width:auto;margin-left:7%;margin-right:7%;display:block;max-width:100%;float:none}}.header-login div.logo-box img{display:inline-block;max-width:100%;padding:65px 30px}.header-login nav.login-nav{background-color:rgba(0,0,0,0.4);width:100%;position:relative;display:inline-block;border-bottom:1px solid rgba(255,255,255,0.2)}.header-login nav.login-nav ul{margin-left:7%;margin-right:7%;margin-top:0;list-style:none;padding:0}.header-login nav.login-nav ul li{padding:0;margin:0;float:right;display:inline-block}.header-login nav.login-nav ul li a{text-decoration:none;color:#fff;border-top:4px solid transparent;font-size:0.80rem;display:block;padding:20px 15px 15px 15px;-moz-transition:300ms all;-o-transition:300ms all;-webkit-transition:300ms all;transition:300ms all}.header-login nav.login-nav ul li a:hover,.header-login nav.login-nav ul li a.selected{border-top:4px solid #fff}.header-login nav.login-nav ul li a.login:before{content:"";font-family:'icomoon';color:#fff;font-size:1.0rem;top:2px;position:relative;margin-right:8px}.header-login nav.login-nav ul li a.register:before{content:"";font-family:'icomoon';color:#fff;font-size:0.9rem;top:2px;position:relative;margin-right:5px}section.branding-box{background:#fff;position:relative;min-width:340px;text-align:center;display:table;border-radius:2px;margin:0 auto;-webkit-box-shadow:4px 4px 20px -5px rgba(0,0,0,0.55);-moz-box-shadow:4px 4px 20px -5px rgba(0,0,0,0.55);box-shadow:4px 4px 20px -5px rgba(0,0,0,0.55);clear:both;top:-25px;margin-bottom:40px}@media (max-width: 576px){section.branding-box{box-sizing:border-box;min-width:auto;margin-left:7%;margin-right:7%;display:block;max-width:100%;float:none}}section.login-box{background:#fff;position:relative;min-width:340px;text-align:center;display:table;border-radius:2px;margin:0 auto;-webkit-box-shadow:4px 4px 20px -5px rgba(0,0,0,0.55);-moz-box-shadow:4px 4px 20px -5px rgba(0,0,0,0.55);box-shadow:4px 4px 20px -5px rgba(0,0,0,0.55);margin-bottom:20px;z-index:99;top:-25px;clear:both;max-width:340px}@media (max-width: 576px){section.login-box{box-sizing:border-box;min-width:auto;margin-left:7%;margin-right:7%;display:block;max-width:100%;float:none}}@media (max-width: 576px){section.login-box{padding-top:10px;padding-bottom:10px}}section.login-box form.login-form{margin:25px 35px;box-sizing:border-box;position:relative}section.login-box form.login-form a.forgot-password{text-decoration:none;color:#808080;font-size:0.8em;display:block;width:100%;text-align:right}section.login-box form.login-form a.forgot-password:hover{text-decoration:underline;color:#000}section.login-box form.login-form label{margin-bottom:15px;position:relative;display:block}section.login-box form.login-form label input{display:inline-block;width:100%;box-sizing:border-box;color:#626262;padding:10px 15px;border-top:1px solid #dadada;border-right:1px solid #dadada;border-bottom:1px solid #dadada;border-left:6px solid #e53d57;outline:none;-moz-transition:300ms all;-o-transition:300ms all;-webkit-transition:300ms all;transition:300ms all}section.login-box form.login-form label input:focus{border-left:6px solid #009f95;border-top:1px solid #b5b5b5;border-right:1px solid #b5b5b5;border-bottom:1px solid #b5b5b5}section.login-box form.login-form label button.do-login{text-transform:uppercase;border-radius:40px;background-color:#e53d57;border:1px solid #e53d57;color:#fff;padding:8px 20px;font-weight:normal;width:100%;display:block;cursor:pointer;-webkit-box-shadow:4px 4px 6px -5px rgba(0,0,0,0.55);-moz-box-shadow:4px 4px 6px -5px rgba(0,0,0,0.55);box-shadow:4px 4px 6px -5px rgba(0,0,0,0.55);-moz-transition:200ms all;-o-transition:200ms all;-webkit-transition:200ms all;transition:200ms all}section.login-box form.login-form label button.do-login:hover{background-color:#d31c38;border:1px solid #d31c38}section.login-box form.login-form label button.do-register{text-transform:uppercase;border-radius:40px;background-color:#009f95;border:1px solid #009f95;color:#fff;padding:8px 20px;font-weight:normal;width:100%;display:block;cursor:pointer;-webkit-box-shadow:4px 4px 6px -5px rgba(0,0,0,0.55);-moz-box-shadow:4px 4px 6px -5px rgba(0,0,0,0.55);box-shadow:4px 4px 6px -5px rgba(0,0,0,0.55);-moz-transition:200ms all;-o-transition:200ms all;-webkit-transition:200ms all;transition:200ms all}section.login-box form.login-form label button.do-register:hover{background-color:#00767d;border:1px solid #00767d}
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,800");
+@font-face {
+    font-family: 'icomoon';
+    src: url("../fonts/icomoon.eot?9rgdyr");
+    src: url("../fonts/icomoon.eot?9rgdyr#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?9rgdyr") format("truetype"), url("../fonts/icomoon.woff?9rgdyr") format("woff"), url("../fonts/icomoon.svg?9rgdyr#icomoon") format("svg");
+    font-weight: normal;
+    font-style: normal
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.icon-search:before {
+    content: ""
+}
+
+.icon-chat:before {
+    content: ""
+}
+
+.icon-register:before {
+    content: ""
+}
+
+.icon-menu:before {
+    content: ""
+}
+
+.icon-chevron-right:before {
+    content: ""
+}
+
+.icon-login:before {
+    content: ""
+}
+
+.icon-phone:before {
+    content: ""
+}
+
+.icon-circle-right:before {
+    content: ""
+}
+
+.icon-facebook:before {
+    content: ""
+}
+
+.icon-twitter:before {
+    content: ""
+}
+
+* {
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box
+}
+
+body {
+    background: #f5f5f5;
+    margin: 0;
+    padding: 0
+}
+
+.header-login {
+    background: #fff url(../images/gumga-login-bg.jpg) no-repeat top center;
+    background-size: cover;
+    position: relative;
+    min-height: 380px
+}
+
+.header-login div.logo-box {
+    background: #fff;
+    position: relative;
+    min-width: 340px;
+    text-align: center;
+    display: table;
+    border-radius: 2px;
+    margin: 0 auto;
+    -webkit-box-shadow: 4px 4px 20px -5px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: 4px 4px 20px -5px rgba(0, 0, 0, 0.55);
+    box-shadow: 4px 4px 20px -5px rgba(0, 0, 0, 0.55);
+    margin-top: 35px
+}
+
+@media (max-width: 576px) {
+    .header-login div.logo-box {
+        box-sizing: border-box;
+        min-width: auto;
+        margin-left: 7%;
+        margin-right: 7%;
+        display: block;
+        max-width: 100%;
+        float: none
+    }
+}
+
+.header-login div.logo-box img {
+    display: inline-block;
+    max-width: 100%;
+    padding: 65px 30px
+}
+
+.header-login nav.login-nav {
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2)
+}
+
+.header-login nav.login-nav ul {
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 0;
+    list-style: none;
+    padding: 0
+}
+
+.header-login nav.login-nav ul li {
+    padding: 0;
+    margin: 0;
+    float: right;
+    display: inline-block
+}
+
+.header-login nav.login-nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    border-top: 4px solid transparent;
+    font-size: 0.80rem;
+    display: block;
+    padding: 20px 15px 15px 15px;
+    -moz-transition: 300ms all;
+    -o-transition: 300ms all;
+    -webkit-transition: 300ms all;
+    transition: 300ms all
+}
+
+.header-login nav.login-nav ul li a:hover,
+.header-login nav.login-nav ul li a.selected {
+    border-top: 4px solid #fff
+}
+
+.header-login nav.login-nav ul li a.login:before {
+    content: "";
+    font-family: 'icomoon';
+    color: #fff;
+    font-size: 1.0rem;
+    top: 2px;
+    position: relative;
+    margin-right: 8px
+}
+
+.header-login nav.login-nav ul li a.register:before {
+    content: "";
+    font-family: 'icomoon';
+    color: #fff;
+    font-size: 0.9rem;
+    top: 2px;
+    position: relative;
+    margin-right: 5px
+}
+
+section.branding-box {
+    background: #fff;
+    position: relative;
+    min-width: 340px;
+    text-align: center;
+    display: table;
+    border-radius: 2px;
+    margin: 0 auto;
+    -webkit-box-shadow: 4px 4px 20px -5px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: 4px 4px 20px -5px rgba(0, 0, 0, 0.55);
+    box-shadow: 4px 4px 20px -5px rgba(0, 0, 0, 0.55);
+    clear: both;
+    top: -25px;
+    margin-bottom: 40px
+}
+
+@media (max-width: 576px) {
+    section.branding-box {
+        box-sizing: border-box;
+        min-width: auto;
+        margin-left: 7%;
+        margin-right: 7%;
+        display: block;
+        max-width: 100%;
+        float: none
+    }
+}
+
+section.login-box {
+    background: #fff;
+    position: relative;
+    min-width: 340px;
+    text-align: center;
+    display: table;
+    border-radius: 2px;
+    margin: 0 auto;
+    -webkit-box-shadow: 4px 4px 20px -5px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: 4px 4px 20px -5px rgba(0, 0, 0, 0.55);
+    box-shadow: 4px 4px 20px -5px rgba(0, 0, 0, 0.55);
+    margin-bottom: 20px;
+    z-index: 99;
+    top: -25px;
+    clear: both;
+    max-width: 340px
+}
+
+@media (max-width: 576px) {
+    section.login-box {
+        box-sizing: border-box;
+        min-width: auto;
+        margin-left: 7%;
+        margin-right: 7%;
+        display: block;
+        max-width: 100%;
+        float: none
+    }
+}
+
+@media (max-width: 576px) {
+    section.login-box {
+        padding-top: 10px;
+        padding-bottom: 10px
+    }
+}
+
+section.login-box form.login-form {
+    margin: 25px 35px;
+    box-sizing: border-box;
+    position: relative
+}
+
+section.login-box form.login-form a.forgot-password {
+    text-decoration: none;
+    color: #808080;
+    font-size: 0.8em;
+    display: block;
+    width: 100%;
+    text-align: right
+}
+
+section.login-box form.login-form a.forgot-password:hover {
+    text-decoration: underline;
+    color: #000
+}
+
+section.login-box form.login-form label {
+    margin-bottom: 15px;
+    position: relative;
+    display: block
+}
+
+section.login-box form.login-form label input {
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    color: #626262;
+    padding: 10px 15px;
+    border-top: 1px solid #dadada;
+    border-right: 1px solid #dadada;
+    border-bottom: 1px solid #dadada;
+    border-left: 6px solid #e53d57;
+    outline: none;
+    -moz-transition: 300ms all;
+    -o-transition: 300ms all;
+    -webkit-transition: 300ms all;
+    transition: 300ms all
+}
+
+section.login-box form.login-form label input:focus {
+    border-left: 6px solid #009f95;
+    border-top: 1px solid #b5b5b5;
+    border-right: 1px solid #b5b5b5;
+    border-bottom: 1px solid #b5b5b5
+}
+
+section.login-box form.login-form label button.do-login {
+    text-transform: uppercase;
+    border-radius: 40px;
+    background-color: #e53d57;
+    border: 1px solid #e53d57;
+    color: #fff;
+    padding: 8px 20px;
+    font-weight: normal;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    -webkit-box-shadow: 4px 4px 6px -5px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: 4px 4px 6px -5px rgba(0, 0, 0, 0.55);
+    box-shadow: 4px 4px 6px -5px rgba(0, 0, 0, 0.55);
+    -moz-transition: 200ms all;
+    -o-transition: 200ms all;
+    -webkit-transition: 200ms all;
+    transition: 200ms all
+}
+
+section.login-box form.login-form label button.do-login:hover {
+    background-color: #d31c38;
+    border: 1px solid #d31c38
+}
+
+section.login-box form.login-form label button.do-register {
+    text-transform: uppercase;
+    border-radius: 40px;
+    background-color: #009f95;
+    border: 1px solid #009f95;
+    color: #fff;
+    padding: 8px 20px;
+    font-weight: normal;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    -webkit-box-shadow: 4px 4px 6px -5px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: 4px 4px 6px -5px rgba(0, 0, 0, 0.55);
+    box-shadow: 4px 4px 6px -5px rgba(0, 0, 0, 0.55);
+    -moz-transition: 200ms all;
+    -o-transition: 200ms all;
+    -webkit-transition: 200ms all;
+    transition: 200ms all
+}
+
+section.login-box form.login-form label button.do-register:hover {
+    background-color: #00767d;
+    border: 1px solid #00767d
+}
+
+.button-google{
+    text-transform: uppercase;
+   border-radius: 40px;
+   color: #fff;
+   background-color: #D0422A;
+   border: 1px solid #D0422A;
+   padding: 8px 20px;
+   font-weight: normal;
+   width: 100%;
+   display: block;
+   cursor: pointer;
+   -webkit-box-shadow: 4px 4px 6px -5px rgba(0,0,0,0.55);
+   -moz-box-shadow: 4px 4px 6px -5px rgba(0,0,0,0.55);
+   box-shadow: 4px 4px 6px -5px rgba(0,0,0,0.55);
+   -moz-transition: 200ms all;
+   -o-transition: 200ms all;
+   -webkit-transition: 200ms all;
+   transition: 200ms all;
+   margin-top: 15px;
+}
+
+.button-google:hover{
+  background-color: #AC2215;
+  border: 1px solid #AC2215;
+}
+
+.button-facebook{
+	 text-transform: uppercase;
+    border-radius: 40px;
+
+    color: #fff;
+    background-color: #3b5998;
+    border: 1px solid #3b5998;
+    padding: 8px 20px;
+    font-weight: normal;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    -webkit-box-shadow: 4px 4px 6px -5px rgba(0,0,0,0.55);
+    -moz-box-shadow: 4px 4px 6px -5px rgba(0,0,0,0.55);
+    box-shadow: 4px 4px 6px -5px rgba(0,0,0,0.55);
+    -moz-transition: 200ms all;
+    -o-transition: 200ms all;
+    -webkit-transition: 200ms all;
+    transition: 200ms all;
+    margin-top: 15px;
+}
+
+.button-facebook:hover{
+  background-color: #224a9c;
+  border: 1px solid #224a9c;
+}
+
+.divider{
+  border-top: 1px solid #d9dadc;
+  display: block;
+  line-height: 1px;
+  margin: 25px 0;
+  position: relative;
+  text-align: center;
+}
+
+.divider .divider-title{
+  background: #fff;
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding: 0 20px;
+  text-transform: uppercase;
+}
