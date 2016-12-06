@@ -4,9 +4,10 @@ import Facebook  from './facebook/component.js'
 import Google  from './google/component.js'
 import FacebookFactory  from '../factorys/facebook/factory.js'
 import GooglePlus  from './google/angular-google-plus.js'
+import Sanitize  from 'angular-sanitize'
 
 angular
-  .module('gumga.login', ['googleplus'])
+  .module('gumga.login', ['googleplus', Sanitize])
   .component('glLogin', Login)
   .component('glLoginHeader', LoginHeader)
   .component('glLoginFacebook', Facebook)

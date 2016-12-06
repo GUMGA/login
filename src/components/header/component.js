@@ -4,17 +4,22 @@ let HeaderComponent = {
     login: '@',
     background: '@',
     logo: '@',
+    menus: '=',
     title: '@'
   },
   template: `
     <header class="header-login" style="background-image: url({{$ctrl.background}})">
       <nav class="login-nav">
         <ul>
-          <li>
-            <a ui-srref="{{$ctrl.login}}" ui-sref-active="selected" title="Login" class="login"">Login</a>
-          </li>
-          <li>
-            <a ui-sref="{{$ctrl.register}}" ui-sref-active="selected" title="Cadastro" class="register">Cadastro</a>
+          <li ng-repeat="menu in $ctrl.menus">
+            <a href="{{menu.url}}" ng-if="menu.link" title="menu.label">
+                <div ng-bind-html="menu.icon" style="float: left;margin-right: 5px;"></div>
+                {{menu.label}}
+            </a>
+            <a ui-sref="{{menu.url}}" ng-if="!menu.link" title="menu.label">
+                <div ng-bind-html="menu.icon" style="float: left;margin-right: 5px;"></div>
+                &nbsp;{{menu.label}}
+            </a>
           </li>
         </ul>
       </nav>
@@ -22,7 +27,12 @@ let HeaderComponent = {
         <img data-ng-src="{{$ctrl.logo}}" title="{{$ctrl.title}}">
       </div>
     </header>
-  `
+  `,
+    controller: [function() {
+      let ctrl = this;
+      ctrl.menus = ctrl.menus || [];
+
+    }]
 }
 
 export default HeaderComponent

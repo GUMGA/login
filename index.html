@@ -11,6 +11,7 @@
     <meta http-equiv="Expires" content="0"/>
     <title>Gumga Studio</title>
     <link rel="stylesheet" href="/src/stylesheets/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="/bower_components/angular/angular.min.js"></script>
     <script src="app.js"></script>
     <script src="/dist/gumga-login.min.js"></script>
@@ -23,15 +24,16 @@
     background="/images/gumga-login-bg.jpg"
     logo="/images/gumga-logo-vertical-negative.svg"
     title="Gumga Studio"
+    menus="meumenu"
     ></gl-login-header>
 
     <gl-login on-submit="loginGumga(login)" type="email" username="email" password="senha">
-        <gl-login-facebook app-key="" on-login="callback(data)"></gl-login-facebook>
+      <div class="divider"><strong class="divider-title">ou entre com</strong></div>
+      <gl-login-facebook app-key="" on-login="login(data)"></gl-login-facebook>
         <gl-login-google app-key=""
-                         on-login="callback(data)"
+                         on-login="login(data)"
                          client-id="">
         </gl-login-google>
-        <div class="divider"><strong class="divider-title">ou</strong></div>
     </gl-login>
 
 </body>
