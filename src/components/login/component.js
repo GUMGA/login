@@ -37,14 +37,12 @@ let LoginComponent = {
   controller: [function() {
     let ctrl = this;
 
-
-
     ctrl.submit = login => {
       ctrl.onSubmit({login: login})
     }
 
     ctrl.isUrl = url => {
-        return /^(https?:\/\/)?((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|((\d{1,3}\.){3}\d{1,3}))(\:\d+)?(\/[-a-z\d%_.~+]*)*(\?[;&a-z\d%_.~+=-]*)?(\#[-a-z\d_]*)?$/i.test(url);
+        return /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/.test(url);
     }
 
   }]
