@@ -1,3 +1,7 @@
+/**
+ * GooglePlus feito por https://github.com/mrzmyr/angular-google-plus
+ */
+
 angular.module('googleplus', []).
 
   /**
