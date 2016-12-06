@@ -4,7 +4,7 @@ let HeaderComponent = {
     login: '@',
     background: '@',
     logo: '@',
-    menus: '=',
+    menus: '=?',
     title: '@'
   },
   template: `
