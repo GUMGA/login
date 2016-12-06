@@ -26,10 +26,10 @@
     ></gl-login-header>
 
     <gl-login on-submit="loginGumga(login)" type="email" username="email" password="senha">
-        <gl-login-facebook app-key="150802978732038" on-login="login(data)"></gl-login-facebook>
-        <gl-login-google app-key="AIzaSyDT3XjQl1Ap-KKdr-MVVob5dqsu0WoxLGc"
-                         on-login="login(data)"
-                         client-id="1082110910831-foeep4ndh49lfq08bd3ghs4mf6druidu.apps.googleusercontent.com">
+        <gl-login-facebook app-key="" on-login="callback(data)"></gl-login-facebook>
+        <gl-login-google app-key=""
+                         on-login="callback(data)"
+                         client-id="">
         </gl-login-google>
         <div class="divider"><strong class="divider-title">ou</strong></div>
     </gl-login>

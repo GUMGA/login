@@ -2,6 +2,7 @@ let Facebook = {
   bindings: {
     appKey: '@',
     clientId: '@',
+    scopes: '@?',
     onLogin: '&'
   },
   template: `
@@ -13,10 +14,13 @@ let Facebook = {
   `,
   controller: ['GooglePlus', function(GooglePlus) {
     let ctrl = this;
-    console.log(GooglePlus)
+    let scopes = ctrl.scopes
+    || 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.me https://www.googleapis.com/auth/userinfo.email';
+
     GooglePlus.init({
         clientId: ctrl.clientId,
-        apiKey: ctrl.appKey
+        apiKey: ctrl.appKey,
+        scopes: scopes
      });
 
     ctrl.submit = () => {
@@ -28,7 +32,7 @@ let Facebook = {
                 ctrl.onLogin({data: response});
             });
         }, function (err) {
-            console.log(err);
+            console.error(err);
         });
     }
 
