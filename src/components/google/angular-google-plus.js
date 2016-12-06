@@ -105,7 +105,6 @@ angular.module('googleplus', []).
       NgGooglePlus.prototype.login =  function () {
         deferred  = $q.defer();
 
-        console.log('agr', options.scopes)
         var authOptions = {
           client_id: options.clientId,
           scope: options.scopes,
