@@ -2,8 +2,45 @@ angular
   .module('app',['gumga.login'])
   .controller('LoginController', ['$scope',function($scope) {
 
+    $scope.configuration = {
+        appURL : 'http://gumga.studio/dashboard-api'
+    };
+
+    $scope.onLogin = (user, organizations) => {
+      console.log(user, organizations)
+    }
+
     $scope.loginGumga = function(login) {
       console.log(login)
+    }
+
+    $scope.exemplo = {
+      fields: [
+        {
+          field: 'name',
+          placeholder: 'Razao',
+          type: 'text'
+        },
+        {
+          field: 'password',
+          placeholder: 'Senha',
+          type: 'password'
+        },
+        {
+          field: 'confirmPassword',
+          placeholder: 'Confirme sua senha',
+          type: 'password',
+          conditions: [
+            {
+              operation: '==',
+              field: 'password'
+            }
+          ]
+        }
+      ],
+      submit: function(data){
+        console.log(data)
+      }
     }
 
     $scope.login = function(dados){
@@ -14,7 +51,7 @@ angular
       {
         label: 'Pagina inicial',
         link: true,
-        icon: '<i class="fa fa-etsy" aria-hidden="true"></i>',
+        icon: '<i class="fa fa-home" aria-hidden="true"></i>',
         url: 'https://www.gumga.io/'
       }
     ]
