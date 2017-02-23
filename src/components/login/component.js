@@ -19,8 +19,8 @@ let LoginComponent = {
           <button type="submit" name="do-login" class="do-login">{{$ctrl.loginText}}</button>
         </label>
 
-        <a class="forgot-password" ng-if="!$ctrl.isUrl($ctrl.forgot)" ui-sref="{{$ctrl.forgot}}">Esqueceu a senha?</a>
-        <a class="forgot-password" ng-if="$ctrl.isUrl($ctrl.forgot)" href="{{$ctrl.forgot}}">Esqueceu a senha?</a>
+        <a class="forgot-password" ng-if="$ctrl.forgot && !$ctrl.isUrl($ctrl.forgot)" ui-sref="{{$ctrl.forgot}}">Esqueceu a senha?</a>
+        <a class="forgot-password" ng-if="$ctrl.forgot && $ctrl.isUrl($ctrl.forgot)" href="{{$ctrl.forgot}}">Esqueceu a senha?</a>
 
         <label for="do-register" style="margin: 10px;" ng-if="$ctrl.registerFields">
             Não tem uma conta?
