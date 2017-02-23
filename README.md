@@ -60,6 +60,10 @@ bower install gumga-login
 angular
   .module('app',['gumga.login'])
   .controller('LoginController', ['$scope',function($scope) {
+  
+    $scope.configuration = {
+        appURL : 'http://gumga.studio/dashboard-api' //ROTA DA SUA API QUE SERÁ FEITO O LOGIN
+    };
 
     $scope.onLogin = (user, organizations) => {
       console.log(user, organizations)
