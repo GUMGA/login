@@ -13,7 +13,7 @@ section.branding-box {
     font-style: normal
 }
 
-[class*=" icon-"],
+/*[class*=" icon-"],
 [class^=icon-] {
     font-family: icomoon!important;
     speak: none;
@@ -24,9 +24,9 @@ section.branding-box {
     line-height: 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale
-}
+}*/
 
-.icon-search:before {
+/*.icon-search:before {
     content: ""
 }
 
@@ -64,9 +64,25 @@ section.branding-box {
 
 .icon-twitter:before {
     content: ""
+}*/
+
+.gumga-login-error{
+    position: absolute;
+    width: 100%;
+    padding: 10px;
+    bottom: 0;
+    left: 0;
+    background: #e53d57;
+    z-index: 9999;
+    color: #fff;
+    font-size: 25px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    animation: fadeIn 1s;
+    transition: all 1s ease-out;
 }
 
-* {
+.login-box {
     font-family: 'Open Sans', sans-serif;
     box-sizing: border-box
 }

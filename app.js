@@ -3,7 +3,8 @@ angular
   .controller('LoginController', ['$scope',function($scope) {
 
     $scope.configuration = {
-        appURL : 'http://gumga.studio/dashboard-api'
+        // appURL : 'http://localhost:8080/darci-api'
+        appURL : 'http://gumga.io/darci-api'
     };
 
     $scope.onLogin = (user, organizations) => {

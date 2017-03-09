@@ -6,6 +6,9 @@ let LoginComponent = {
   },
   transclude: true,
   template: `
+    <div class="gumga-login-error" style="{{$ctrl.alertErrorMessage.type=='success'?'background: #009F95;':''}}" ng-show="$ctrl.alertErrorMessage">
+      {{$ctrl.alertErrorMessage.message}}
+    </div>
     <section class="login-box">
 
       <form name="login-form" class="login-form" data-ng-submit="$ctrl.submit(email, password)" novalidate ng-if="$ctrl.step == 'LOGIN'">
@@ -19,8 +22,7 @@ let LoginComponent = {
           <button type="submit" name="do-login" class="do-login">{{$ctrl.loginText}}</button>
         </label>
 
-        <a class="forgot-password" ng-if="$ctrl.forgot && !$ctrl.isUrl($ctrl.forgot)" ui-sref="{{$ctrl.forgot}}">Esqueceu a senha?</a>
-        <a class="forgot-password" ng-if="$ctrl.forgot && $ctrl.isUrl($ctrl.forgot)" href="{{$ctrl.forgot}}">Esqueceu a senha?</a>
+        <a class="forgot-password" style="cursor:pointer;" data-ng-click="$ctrl.updateStep('FORGOT')">Esqueceu a senha?</a>
 
         <label for="do-register" style="margin: 10px;" ng-if="$ctrl.registerFields">
             Não tem uma conta?
@@ -35,10 +37,10 @@ let LoginComponent = {
       <form name="login-form" class="login-form" ng-show="$ctrl.step == 'CHANGE_ORGANIZATION'">
 
         <img style="width: 100px;
-        height: 100px;
-        padding: 5px;
-        border: 1px solid #ddd;
-        border-radius: 50%;" data-ng-src="{{$ctrl.user.profileImage}}"/>
+          height: 100px;
+          padding: 5px;
+          border: 1px solid #ddd;
+          border-radius: 50%;" data-ng-src="{{$ctrl.user.profileImage}}"/>
 
         <br>
         <br>
@@ -64,7 +66,12 @@ let LoginComponent = {
 
       </form>
 
+
       <form name="login-form" class="login-form" ng-show="$ctrl.step == 'REGISTER'">
+        <div style="height: 20px;">
+          <span style="cursor: pointer;font-size: 17px;" class="glyphicon glyphicon-chevron-left pull-left" ng-click="$ctrl.updateStep('LOGIN')"></span>
+          <label style="cursor: pointer;" class="pull-left" ng-click="$ctrl.updateStep('LOGIN')">Voltar</label>
+        </div>
         <label data-ng-repeat="field in $ctrl.registerFields" for="{{field.field}}">
           <input type="{{field.type}}" name="{{field.field}}" id="{{field.field}}" placeholder="{{field.placeholder}}" data-ng-model="field.value">
         </label>
@@ -77,13 +84,66 @@ let LoginComponent = {
         </label>
       </form>
 
+      <form name="login-form" class="login-form" ng-show="$ctrl.step == 'FORGOT'">
+        <div style="height: 20px;">
+          <span style="cursor: pointer;font-size: 17px;" class="glyphicon glyphicon-chevron-left pull-left" ng-click="$ctrl.updateStep('LOGIN')"></span>
+          <label style="cursor: pointer;" class="pull-left" ng-click="$ctrl.updateStep('LOGIN')">Voltar</label>
+        </div>
+        <label for="username">
+          <input type="email" name="username" placeholder="Endereço de e-mail.." data-ng-model="$ctrl.forgotEmail">
+        </label>
+        <p style="font-size: 9px;">
+          <b>Obs :</b> O E-mail informado acima, receberá uma mensagem contendo um informações de como redefinir sua senha.
+        </p>
+        <label for="do-login">
+          <button type="button"
+                  ng-disabled="!$ctrl.isValidEmail($ctrl.forgotEmail) || disabledForgotButton"
+                  data-ng-click="$ctrl.lostPassword($ctrl.forgotEmail)"
+                  name="do-login" class="do-login">{{$ctrl.forgotButtonText}}</button>
+        </label>
+      </form>
+
+      <form name="login-form" class="login-form" ng-show="$ctrl.step == 'NEW_PASSWORD'" ng-init="$ctrl.lost={}">
+          <div style="height: 20px;">
+            <span style="cursor: pointer;font-size: 17px;" class="glyphicon glyphicon-chevron-left pull-left" ng-click="$ctrl.removeParams()"></span>
+            <label style="cursor: pointer;" class="pull-left" ng-click="$ctrl.removeParams()">Voltar</label>
+          </div>
+          <label for="password">
+            <input type="password" name="password" placeholder="Nova senha" data-ng-model="$ctrl.lost.password">
+          </label>
+          <label for="password">
+            <input type="password" name="password" placeholder="Repita a nova senha" data-ng-model="$ctrl.lost.confirmPassword">
+          </label>
+          <label for="do-login">
+            <button type="button"
+                    ng-disabled="($ctrl.lost.password != $ctrl.lost.confirmPassword) || disabledLostButton || !$ctrl.lost.password"
+                    data-ng-click="$ctrl.updatePassword($ctrl.lost);"
+                    name="do-login" class="do-login">{{$ctrl.lostButtonText}}</button>
+          </label>
+      </form>
+
     </section>
   `,
-  controller: ['GumgaLoginService', function(GumgaLoginService) {
+  controller: ['GumgaLoginService', '$timeout', function(GumgaLoginService, $timeout) {
     let ctrl = this;
     ctrl.loginText = 'Entrar';
     ctrl.changeOrganizationText = 'Continuar';
     ctrl.registerText = 'Inscrever';
+    ctrl.forgotButtonText = 'Redefinir';
+    ctrl.lostButtonText = 'Redefinir';
+    ctrl.disabledLostButton = false;
+    ctrl.disabledForgotButton = false;
+
+    const getUrlVars = () => {
+      let vars = {}, parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+      function(m,key,value) {
+        vars[key] = value;
+      });
+      return vars;
+    }
+
+    var params = getUrlVars();
+
     if(ctrl.register){
       ctrl.registerFields = ctrl.register.fields;
     }
@@ -117,6 +177,14 @@ let LoginComponent = {
     }
 
     ctrl.submit = (email, password) => {
+      if(!email || !password){
+        ctrl.showMessage('error', 'Precisamos que todas as informações sejam preenchidas.');
+        return;
+      }
+      if(!ctrl.isValidEmail(email)){
+        ctrl.showMessage('error', 'Aparentemente você digitou um E-mail incorreto.');
+        return;
+      }
       ctrl.loginText = 'Aguarde...';
       GumgaLoginService.login(email, password)
         .then(resp=>{
@@ -136,6 +204,8 @@ let LoginComponent = {
             }, error => {
                 ctrl.onLogin({user: resp.data, organizations: undefined});
             });
+        }, error => {
+          ctrl.loginText = 'Entrar';
         });
     }
 
@@ -158,6 +228,10 @@ let LoginComponent = {
 
     ctrl.isUrl = url => {
         return /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/.test(url);
+    }
+
+    ctrl.isValidEmail = email => {
+        return /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
     }
 
     const getRegisterFieldByName = name => {
@@ -202,6 +276,96 @@ let LoginComponent = {
       ctrl.register.submit(toReturn);
       ctrl.loginText = 'Entrar';
       ctrl.updateStep('LOGIN');
+    }
+
+    ctrl.lostPassword = (email) => {
+      ctrl.forgotButtonText = 'Aguarde...';
+      ctrl.disabledForgotButton = true;
+      GumgaLoginService.lostPassword(email)
+      .then(resp => {
+        if(resp.data.response == 'OK'){
+          ctrl.showMessage('success', 'Solicitação de nova senha enviada, verifique seu E-mail.');
+          delete ctrl.forgotEmail;
+          ctrl.updateStep('LOGIN');
+        }else if(resp.data.response == 'NO_USER'){
+          ctrl.showMessage('error', 'O E-mail informado não possui registro.');
+        }
+        ctrl.forgotButtonText = 'Redefinir';
+        ctrl.disabledForgotButton = false;
+      }, error => {
+        ctrl.showMessage('error', 'Falha ao conectar com os servidores, tente mais tarde.');
+        ctrl.forgotButtonText = 'Redefinir';
+        ctrl.disabledForgotButton = false;
+        ctrl.updateStep('LOGIN');
+      })
+    }
+
+    ctrl.updatePassword = (lost) => {
+      ctrl.lostButtonText = 'Aguarde...';
+      ctrl.disabledLostButton = true;
+      if(!lost.password || (lost.password != lost.confirmPassword)){
+          ctrl.showMessage('error', 'Verifique se você repetiu sua senha corretamente.');
+          return;
+      }
+
+      GumgaLoginService.updatePassword(params['ticket'], lost.password)
+        .then(resp => {
+          if(resp.data.response == 'OK'){
+            ctrl.showMessage('success', 'Sua senha foi redefinida com sucesso.');
+            ctrl.lostButtonText = 'Redefinir';
+            ctrl.disabledLostButton = false;
+            ctrl.updateStep('LOGIN');
+          }else if(resp.data.response == 'TOKEN_EXPIRED'){
+              ctrl.showMessage('error', 'Seu ticket de redefinição de senha foi expirado.', 3000, () => {
+                ctrl.removeParams();
+              });
+          }else{
+            ctrl.showMessage('error', 'Falha ao conectar com os servidores, aguarde...', 3000, () => {
+              ctrl.removeParams();
+            });
+          }
+        }, error => {
+          ctrl.showMessage('error', 'Falha ao conectar com os servidores, aguarde...', 3000, () => {
+            ctrl.removeParams();
+          });
+        })
+    }
+
+    ctrl.showMessage = (type, message, time, callback) => {
+        ctrl.alertErrorMessage = {
+          message: message,
+          type: type
+        };
+        $timeout(() => {
+          delete ctrl.alertErrorMessage
+          if(callback) callback();
+        }, (time || 3000));
+    }
+
+    ctrl.removeParams = () => {
+      location.href = location.href.substring(0, location.href.lastIndexOf('?'));
+    }
+
+
+    if(params['ticket']){
+       GumgaLoginService.searchTicket(params['ticket'])
+        .then(resp => {
+          if(resp.data.response == 'OK'){
+            ctrl.updateStep('NEW_PASSWORD');
+          }else if(resp.data.response == 'TOKEN_EXPIRED'){
+              ctrl.showMessage('error', 'Seu ticket de redefinição de senha foi expirado.', 3000, () => {
+                ctrl.removeParams();
+              });
+          }else{
+            ctrl.showMessage('error', 'Falha ao conectar com os servidores, aguarde...', 3000, () => {
+              ctrl.removeParams();
+            });
+          }
+        }, error => {
+          ctrl.showMessage('error', 'Falha ao conectar com os servidores, aguarde...', 3000, () => {
+            ctrl.removeParams();
+          });
+        })
     }
 
   }]
