@@ -3,7 +3,7 @@ angular
   .controller('LoginController', ['$scope',function($scope) {
 
     $scope.configuration = {
-        appURL : 'http://192.168.25.176:8080/darci-api'
+        appURL : 'http://192.168.25.250/security-api'
         // appURL : 'http://gumga.io/darci-api'
     };
 

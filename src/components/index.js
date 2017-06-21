@@ -7,6 +7,8 @@ import FacebookFactory  from '../factorys/facebook/factory.js'
 import GooglePlus  from './google/angular-google-plus.js'
 // import Sanitize  from 'angular-sanitize'
 
+require('../stylesheets/login.css');
+
 angular
   .module('gumga.login', ['googleplus'])
   .component('glLogin', Login)

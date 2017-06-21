@@ -417,3 +417,8 @@ section.login-box form.login-form label button.do-login[disabled~="disabled"]{
   background: #ddd;
   border: none;
 }
+
+.organizations-container{
+  max-height: 250px;
+  overflow: auto;
+}

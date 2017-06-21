@@ -1,38 +1,47 @@
-var webpack = require('webpack');
-var UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const baseName = "gumga-login";
 
 module.exports = {
-  entry: './src/components/index.js',
-  output: {
-    path: './',
-    filename: 'gumga-login.js'
-  },
-  devServer: {
-    inline: true,
-    port: 1111
-  },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      include: /\.min\.js$/,
-      minimize: true,
-      beautify: true,
-      comments: false,
-      mangle: false,
-      compress: {
-          warnings: false
-      }
-    })
-  ],
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
-        query: {
-          "presets": ["es2015", "stage-0"]
-        }
-      }
-    ]
-  }
-}
+    entry: path.join(__dirname, 'src/components', 'index'),
+    output: {
+        path: path.join(__dirname, 'dist/'),
+        filename: baseName+'.js',
+        publicPath: '/dist/'
+    },
+    devServer: {
+        inline: true,
+        port: 1111
+    },
+    plugins: [
+        new ExtractTextPlugin({
+            filename: baseName+".css",
+            allChunks: true
+        })
+    ],
+    module: {
+        rules: [
+            {
+              test: /\.js$/,
+              exclude: /node_modules/,
+              use: [
+                {
+                  loader: 'babel-loader'
+                }
+              ]
+            },
+            {
+              test: /\.css$/,
+              use: ExtractTextPlugin.extract({
+                  use: 'css-loader'
+              })
+            },
+            {
+              test: /\.(jpe?g|png|gif|svg|eot|woff2|woff|ttf)$/i,
+              use: "file-loader?name=assets/[name].[ext]"
+            }
+        ]
+    }
+};

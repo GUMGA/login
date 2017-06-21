@@ -8,7 +8,7 @@ export default function GumgaLoginService($http, $window){
     Service.getOrganizations = (token) => {
         return $http.get(Service.configuration['appURL'].concat('/public/token/organizations/'.concat(token)));
     }
-
+    
     Service.changeOrganization = (token, organization) => {
       return $http.get(Service.configuration['appURL'].concat('/public/token/changeorganization/'.concat(token).concat('/').concat(organization.id)));
     }

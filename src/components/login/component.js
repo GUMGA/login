@@ -51,11 +51,13 @@ let LoginComponent = {
           placeholder="Qual organização deseja entrar?" ng-init="$ctrl.organizationFilter = ''" data-ng-model="$ctrl.organizationFilter">
         </label>
 
-        <div style="background:#f5f5f5;margin-bottom:10px;padding: 10px;cursor: pointer;"
-          data-ng-click="$ctrl.organizationSelected = organization"
-          data-ng-repeat="organization in $ctrl.organizations | filter:{ name: $ctrl.organizationFilter } | limitTo: 5">
-          <span class="text text-muted">{{organization.name}}</span>
-          <span ng-show="$ctrl.organizationSelected.id == organization.id" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        <div class="organizations-container">
+          <div style="background:#f5f5f5;margin-bottom:10px;padding: 10px;cursor: pointer;"
+            data-ng-click="$ctrl.organizationSelected = organization"
+            data-ng-repeat="organization in $ctrl.organizations | filter:{ name: $ctrl.organizationFilter }">
+            <span class="text text-muted">{{organization.name}}</span>
+            <span ng-show="$ctrl.organizationSelected.id == organization.id" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+          </div>
         </div>
 
         <label for="do-login">
