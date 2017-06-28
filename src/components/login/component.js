@@ -156,10 +156,10 @@ let LoginComponent = {
     ctrl.updateStep('LOGIN');
 
     ctrl.$onInit = () => {
-      console.log(ctrl.configuration);
       if(!ctrl.configuration){
         throw "Please enter the setup object for the gumga login.";
       }
+      GumgaLoginService.initConfiguration(ctrl.configuration);
     }
 
     ctrl.back = (step) => {
@@ -170,8 +170,6 @@ let LoginComponent = {
             break;
         }
     }
-
-    GumgaLoginService.initConfiguration(ctrl.configuration);
 
     const createUserImage = (user) => {
         if(user.picture){
