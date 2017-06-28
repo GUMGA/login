@@ -155,8 +155,11 @@ let LoginComponent = {
 
     ctrl.updateStep('LOGIN');
 
-    if(!ctrl.configuration){
-      throw "Please enter the setup object for the gumga login.";
+    ctrl.$onInit = () => {
+      console.log(ctrl.configuration);
+      if(!ctrl.configuration){
+        throw "Please enter the setup object for the gumga login.";
+      }
     }
 
     ctrl.back = (step) => {
