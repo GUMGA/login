@@ -5,12 +5,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const baseName = "gumga-login";
 
 module.exports = {
-    entry: path.join(__dirname, 'src/components', 'index'),
+    entry: path.join(__dirname, 'src/components/', 'index'),
     output: {
         path: path.join(__dirname, 'dist/'),
         filename: baseName+'.js',
         publicPath: '/dist/'
     },
+    watch: true,
     devServer: {
         inline: true,
         port: 1111

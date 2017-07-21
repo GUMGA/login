@@ -30,7 +30,10 @@ let HeaderComponent = {
   `,
     controller: [function() {
       let ctrl = this;
-      ctrl.menus = ctrl.menus || [];
+
+      ctrl.$onInit = () => {
+        ctrl.menus = ctrl.menus || [];
+      }
 
     }]
 }

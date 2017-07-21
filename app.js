@@ -15,6 +15,18 @@ angular
       console.log(login)
     }
 
+
+    $scope.pedido = {
+      "cliente": "mateus",
+      "itens": [{}]
+    }
+
+    $scope.$watch('pedido', function(pedido){
+
+      console.log(pedido)
+
+    }, true);
+
     $scope.exemplo = {
       fields: [
         {

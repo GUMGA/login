@@ -20,14 +20,17 @@ let Facebook = {
   controller: ['FacebookFactory', '$transclude', function(FacebookFactory, $transclude) {
     let ctrl = this;
 
-    FacebookFactory.setLang('pt_BR') // set lang
-    FacebookFactory.init({
-        appId: ctrl.appKey, // required, default = null
-        status: true, // optional, default = true
-        cookie: false, // optional, default = false
-        xfbml: false, // optional, default = false
-        version: 'v2.4' // optional, default = v2.4
-    })
+    ctrl.$onInit = () => {
+      FacebookFactory.setLang('pt_BR') // set lang
+
+      FacebookFactory.init({
+          appId: ctrl.appKey, // required, default = null
+          status: true, // optional, default = true
+          cookie: false, // optional, default = false
+          xfbml: false, // optional, default = false
+          version: 'v2.4' // optional, default = v2.4
+      })
+    }
 
     ctrl.me = facebookStatus => {
         FacebookFactory.api('/me', {

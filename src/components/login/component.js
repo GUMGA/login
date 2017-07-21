@@ -1,8 +1,8 @@
 let LoginComponent = {
   bindings: {
-    onLogin: '&',
-    configuration: '=',
-    register: '='
+    onLogin: '&?',
+    configuration: '=?',
+    register: '=?'
   },
   transclude: true,
   template: `
@@ -126,7 +126,7 @@ let LoginComponent = {
 
     </section>
   `,
-  controller: ['GumgaLoginService', '$timeout', function(GumgaLoginService, $timeout) {
+  controller: ['GumgaLoginService', '$timeout', '$scope', function(GumgaLoginService, $timeout, $scope) {
     let ctrl = this;
     ctrl.loginText = 'Entrar';
     ctrl.changeOrganizationText = 'Continuar';
@@ -155,9 +155,13 @@ let LoginComponent = {
 
     ctrl.updateStep('LOGIN');
 
+    $scope.$watch('$ctrl.configuration', () => {
+      GumgaLoginService.initConfiguration(ctrl.configuration);
+    }, true);
+
     ctrl.$onInit = () => {
       if(!ctrl.configuration){
-        throw "Please enter the setup object for the gumga login.";
+        console.error("Please enter the setup object for the gumga login.");
       }
       GumgaLoginService.initConfiguration(ctrl.configuration);
     }
