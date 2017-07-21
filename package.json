@@ -1,6 +1,6 @@
 {
   "name": "gumga-login",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "description": "Gumga Login",
   "main": "src/index.js",
   "scripts": {
@@ -39,6 +39,6 @@
      "webpack-stream": "^3.2.0"
   },
   "dependencies": {
-    "angular": "^1.6.4"
+    "angular": "^1.5.8"
   }
 }
