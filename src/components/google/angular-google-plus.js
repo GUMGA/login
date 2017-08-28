@@ -66,6 +66,12 @@ angular.module('googleplus', []).
      * Init Google Plus API
      */
     this.init = function(customOptions) {
+      var po = document.createElement('script');
+      po.type = 'text/javascript';
+      po.async = true;
+      po.src = 'https://apis.google.com/js/client.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(po, s);
       angular.extend(options, customOptions);
     };
 
@@ -179,10 +185,10 @@ angular.module('googleplus', []).
 
 // Initialization of module
 .run([function() {
-  var po = document.createElement('script');
-  po.type = 'text/javascript';
-  po.async = true;
-  po.src = 'https://apis.google.com/js/client.js';
-  var s = document.getElementsByTagName('script')[0];
-  s.parentNode.insertBefore(po, s);
+  // var po = document.createElement('script');
+  // po.type = 'text/javascript';
+  // po.async = true;
+  // po.src = 'https://apis.google.com/js/client.js';
+  // var s = document.getElementsByTagName('script')[0];
+  // s.parentNode.insertBefore(po, s);
 }]);
