@@ -10,7 +10,11 @@ export default function GumgaLoginService($http, $window){
     }
     
     Service.changeOrganization = (token, organization) => {
-      return $http.get(Service.configuration['appURL'].concat('/public/token/changeorganization/'.concat(token).concat('/').concat(organization.id)));
+      return $http.get(Service.configuration['appURL']
+                  .concat('/public/token/changeorganization/'
+                  .concat(token)
+                  .concat('/')
+                  .concat(organization.id)));
     }
 
     Service.lostPassword = (email) => {

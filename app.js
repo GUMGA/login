@@ -3,8 +3,9 @@ angular
   .controller('LoginController', ['$scope',function($scope) {
 
     $scope.configuration = {
-        appURL : 'http://192.168.25.250/security-api'
-        // appURL : 'http://gumga.io/darci-api'
+        // appURL : 'http://192.168.25.250/security-api'
+        // appURL : 'https://gumga.studio/dashboard-api'
+        appURL : 'http://192.168.253.246:8080/dashboard-api'
     };
 
     $scope.onLogin = (user, organizations) => {
@@ -20,12 +21,6 @@ angular
       "cliente": "mateus",
       "itens": [{}]
     }
-
-    $scope.$watch('pedido', function(pedido){
-
-      console.log(pedido)
-
-    }, true);
 
     $scope.exemplo = {
       fields: [

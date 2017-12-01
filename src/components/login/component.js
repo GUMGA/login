@@ -220,6 +220,8 @@ let LoginComponent = {
       ctrl.changeOrganizationText = 'Aguarde...';
       GumgaLoginService.changeOrganization(ctrl.user.token, organization)
         .then(resp=>{
+          // console.log(resp);
+            ctrl.user['token'] = resp.data['value'];
             ctrl.user['organization'] = resp.data['name'];
             ctrl.user['organizationHierarchyCode'] = resp.data['hierarchyCode'];
             ctrl.user['softwareHouse'] = resp.data['isSoftwareHouse'];
