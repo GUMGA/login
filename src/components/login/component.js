@@ -222,8 +222,8 @@ let LoginComponent = {
         .then(resp=>{
           // console.log(resp);
             ctrl.user['token'] = resp.data['value'];
-            ctrl.user['organization'] = resp.data['name'];
-            ctrl.user['organizationHierarchyCode'] = resp.data['hierarchyCode'];
+            ctrl.user['organization'] = resp.organization.data['name'];
+            ctrl.user['organizationHierarchyCode'] = resp.organization.data['hierarchyCode'];
             ctrl.user['softwareHouse'] = resp.data['isSoftwareHouse'];
             ctrl.user['securityManager'] = resp.data['securityManager'];
             GumgaLoginService.setItemInSession('user', ctrl.user);
