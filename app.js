@@ -5,7 +5,7 @@ angular
     $scope.configuration = {
         // appURL : 'http://192.168.25.250/security-api'
         // appURL : 'https://gumga.studio/dashboard-api'
-        appURL : 'http://192.168.253.246:8080/dashboard-api'
+        appURL : 'https://gumga.studio/dashboard-api'
     };
 
     $scope.onLogin = (user, organizations) => {

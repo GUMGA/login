@@ -220,16 +220,18 @@ let LoginComponent = {
       ctrl.changeOrganizationText = 'Aguarde...';
       GumgaLoginService.changeOrganization(ctrl.user.token, organization)
         .then(resp=>{
-          // console.log(resp);
+            sessionStorage.removeItem('user');
+            sessionStorage.removeItem('gumgaToken');
             ctrl.user['token'] = resp.data['value'];
             ctrl.user['organization'] = resp.data.organization['name'];
             ctrl.user['organizationHierarchyCode'] = resp.data.organization['hierarchyCode'];
             ctrl.user['softwareHouse'] = resp.data['isSoftwareHouse'];
             ctrl.user['securityManager'] = resp.data['securityManager'];
+            sessionStorage.setItem('gumgaToken', resp.data['value']);
             GumgaLoginService.setItemInSession('user', ctrl.user);
-            ctrl.onLogin({user: ctrl.user, organizations: ctrl.organizations});
             ctrl.loginText = 'Entrar';
             ctrl.updateStep('LOGIN');
+            ctrl.onLogin({user: ctrl.user, organizations: ctrl.organizations});
         }, error=> {
           ctrl.changeOrganizationText = 'Erro :(';
         });
