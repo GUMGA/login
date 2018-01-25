@@ -422,3 +422,270 @@ section.login-box form.login-form label button.do-login[disabled~="disabled"]{
   max-height: 250px;
   overflow: auto;
 }
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(https://fonts.googleapis.com/css?family=Libre+Franklin);
+}
+
+gl-login .gumga-register{
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    font-size: 1.8em;
+    letter-spacing: .05rem;
+    font-weight: 300;
+    font-family: 'Libre Franklin', sans-serif;
+    color: #8091AA;
+    background-color: #F6FBFF;
+    animation-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+    animation-fill-mode: both;
+}
+
+
+gl-login .gumga-register img{
+    width: fit-content;
+}
+
+gl-login .gumga-register .content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+}
+
+gl-login .gumga-register h2.title{
+    font-size: 4.2rem;
+    color: #475C7A;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 300;
+    letter-spacing: -.1rem;
+    line-height: 1.25;
+    margin-bottom: 24px;
+}
+
+gl-login .gumga-register p.subtitle{
+    font-size: 18px;
+    margin-bottom: 4rem;
+}
+
+gl-login .gumga-register input.form-control{
+    padding: 1rem 2rem;
+    background-color: #fff;
+    color: #1D437A;
+    font-size: 1.8rem;
+    letter-spacing: .05rem;
+    border: 1px solid #CDD8E3;
+    border-radius: 2px;
+    padding-right: 6rem;
+    height: 6rem;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+gl-login .gumga-register input.form-control:focus{
+    border: 1px solid #33C3F0;
+    outline: 0;
+}
+
+
+gl-login .gumga-register form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+gl-login .gumga-register form div.form-group{
+    width: 100%;
+}
+
+gl-login .gumga-register .btn-register[disabled]{
+    color: #FFF;
+    background: #CDD8E3 !important;
+    cursor: not-allowed;
+}
+
+gl-login input.ng-touched.input-error {
+    border: 1px solid #FE6239 !important;
+}
+
+gl-login input.form-control{
+    border: 1px solid transparent;
+}
+
+gl-login input.form-control + span{
+    position: absolute;
+    top: 12px;
+    right: 34px;
+}
+
+gl-login input.form-control.desc-active{
+    padding-right: 155px;
+}
+
+gl-login input.form-control + i{
+    display: none;
+}
+
+gl-login input.form-control.ng-touched.input-error + i {
+    position: absolute;
+    top: 17px;
+    right: 30px;
+    border: 1px solid #FE6239;
+    color: #FE6239;
+    border-radius: 12px;
+    display: block;
+}
+
+gl-login i.icon-left {
+    position: absolute;
+    top: 17px;
+    left: 30px;
+}
+
+gl-login i.icon-left + input.form-control{
+    padding-left: 55px;
+}
+gl-login .option-step{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    transition: all ease 300ms;
+    cursor: pointer;
+}
+
+gl-login .option-step.right{
+    margin-right: 24px;
+}
+
+gl-login .option-step .multi i {
+    font-size: 30px;
+}
+
+gl-login .option-step .multi-three, gl-login .option-step .multi-seven, gl-login .option-step .multi-more{
+    text-align: center;
+}
+
+gl-login .option-step .multi-three i{
+    font-size: 36px;
+}
+
+gl-login .option-step .multi-seven i{
+    font-size: 35px;
+}
+
+gl-login .option-step .multi-more i{
+    font-size: 33px;
+}
+
+gl-login .step-three{
+    margin-top: 34px;
+}
+
+gl-login .option-step.left{
+    margin-right: 27px;
+}
+
+gl-login .option-step i {
+    font-size: 90px;
+}
+
+gl-login .option-step label {
+    font-size: 18px;
+}
+
+gl-login .option-step:hover{
+    transform: scale(1.1);
+    transition: all ease 300ms;
+}
+
+gl-login .gl-select{
+    margin-bottom: 4rem;
+    border: 1px solid #CDD8E3;
+    border-radius: 2px;
+    padding: 8px 15px 8px 15px;
+    outline: none;
+    background: white;
+}
+
+gl-login .gumga-register .btn-register{
+    display: inline-block;
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 300;
+    line-height: 40px;
+    letter-spacing: .05rem;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    padding: 1rem 4rem;
+    position: relative;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+    color: #FFF;
+    background: #9DCE24;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.15);
+    width: fit-content;
+}
+
+gl-login .gumga-register .btn-register.btn-register-arrow{
+    width: inherit;
+    padding: 5px 22px 8px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+gl-login .gumga-register btn-register.btn-register-arrow i{
+    font-size: 46px;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+gl-login[theme=kigi] .gumga-register{
+    /* background-color: #D4E057; */
+    background-color: #F6FBFF;
+}
+
+gl-login[theme=kigi] .gumga-register h2.title{
+    /* color: #f68f1f; */
+    color: #E30A55;
+}
+
+gl-login[theme=kigi] .gumga-register p.subtitle{
+    /* color: #00bbbe */
+    color: #8091AA;
+}
+
+gl-login[theme=kigi] .gumga-register .btn-register{
+    background: #E30A55;
+}
+
+
+

@@ -6,6 +6,9 @@ let LoginComponent = {
   },
   transclude: true,
   template: `
+
+    <gl-register ng-if="$ctrl.registerSaaS"></gl-register>
+
     <div class="gumga-login-error" style="{{$ctrl.alertErrorMessage.type=='success'?'background: #009F95;':''}}" ng-show="$ctrl.alertErrorMessage">
       {{$ctrl.alertErrorMessage.message}}
     </div>
@@ -357,6 +360,9 @@ let LoginComponent = {
       location.href = location.href.substring(0, location.href.lastIndexOf('?'));
     }
 
+    if(params['email']){
+      ctrl.registerSaaS = true;
+    }
 
     if(params['ticket']){
        GumgaLoginService.searchTicket(params['ticket'])
