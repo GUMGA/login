@@ -645,8 +645,12 @@ gl-login .option-step.left{
 }
 
 gl-login .option-step i {
-    font-size: 90px;
+    font-size: 80px;
     color: #0dbabd;
+    border: 1px solid #0dbabd;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 19px;
 }
 
 gl-login .option-step label {
@@ -884,12 +888,32 @@ gl-login.container{
     gl-login .gumga-register p.subtitle{
         margin-bottom: 0;
     }
+    gl-login .gumga-register div[ng-show="$ctrl.step == 4"] form, gl-login .gumga-register div[ng-show="$ctrl.step == 5"] form{
+        height: 340px;
+        margin-top: 50px;
+    }
     gl-login .row-step{
-        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 120px;
+        grid-template-areas: "a b" "c d";
+        text-align: -webkit-center;
+        align-items: center;
+        grid-gap: 60px;
+    }
+    gl-login .row-step .area-1{
+        grid-area: a;
+    }
+    gl-login .row-step .area-2{
+        grid-area: b;
+    }
+    gl-login .row-step .area-3{
+        grid-area: c;
+    }
+    gl-login .row-step .area-4{
+        grid-area: d;
     }
     gl-login .row-step .option-step{
-        width: 50%;
-        float: left;
         padding: 0;
     }
     gl-login div[ng-show="$ctrl.step == 2"] div.container{

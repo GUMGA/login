@@ -171,9 +171,9 @@
                 <b>#</b>
             </span>Beleza {{$ctrl.getFirstName()}}...</h2>
         <p class="subtitle">O que você faz ai na empresa?</p>
-        <select class="gl-select" ng-model="$ctrl.user.type" ng-init="$ctrl.user.type = 'Dono'">
+        <select class="gl-select" ng-model="$ctrl.user.type" ng-init="$ctrl.user.type = 'Diretor'">
             <option value="Colaborador">Colaborador</option>
-            <option value="Dono">Dono</option>
+            <option value="Diretor">Diretor</option>
         </select>
         <p class="subtitle">Quantos colaboradores você já tem?</p>
         <div class="container">
@@ -181,24 +181,24 @@
                 <form>
 
                     <div class="row row-step">
-                        <div class="col-md-3 option-step left" ng-click="$ctrl.setQntPerson('Sozinho')">
+                        <div class="col-md-3 option-step left area-1" ng-click="$ctrl.setQntPerson('Sozinho')">
                             <i class="material-icons">accessibility</i>
                             <label>Tô sozinho!</label>
                         </div>
-                        <div class="col-md-3 option-step right" ng-click="$ctrl.setQntPerson('Até 3')">
+                        <div class="col-md-3 option-step right area-2" ng-click="$ctrl.setQntPerson('Até 3')">
                             <div class="multi multi-three">
                                 <i class="material-icons">group</i>
                             </div>
                             <label>Até 3 Pessoas</label>
                         </div>
-                        <div class="col-md-3 option-step right" ng-click="$ctrl.setQntPerson('Até 7')">
+                        <div class="col-md-3 option-step right area-3" ng-click="$ctrl.setQntPerson('Até 7')">
                             <div class="multi multi-seven">
                                 <i class="material-icons">group</i>
-                                <i class="material-icons" style="font-size: 27px; color: #E71054;">add</i>
+                                <i class="material-icons" style="position: absolute; bottom: 62px; padding: 0; border: none; right: 30px; background: #f86131; color: #FFF; font-size: 20px;">add</i>
                             </div>
                             <label>Até 7 Pessoas</label>
                         </div>
-                        <div class="col-md-3 option-step right" ng-click="$ctrl.setQntPerson('Mais que 7')">
+                        <div class="col-md-3 option-step right area-4" ng-click="$ctrl.setQntPerson('Mais que 7')">
                             <div class="multi multi-more">
                                 <i class="material-icons">library_add</i>
                             </div>
@@ -226,20 +226,20 @@
             <div class="row">
                 <form>
 
-                    <div class="row">
-                        <div class="col-md-3 option-step left" ng-click="$ctrl.setFollow('Industria')">
+                    <div class="row row-step">
+                        <div class="col-md-3 option-step left area-1" ng-click="$ctrl.setFollow('Industria')">
                             <i class="material-icons">domain</i>
                             <label>Industria</label>
                         </div>
-                        <div class="col-md-3 option-step left" ng-click="$ctrl.setFollow('Varejo')">
+                        <div class="col-md-3  option-step left  area-2" ng-click="$ctrl.setFollow('Varejo')">
                             <i class="material-icons">shopping_cart</i>
                             <label>Varejo</label>
                         </div>
-                        <div class="col-md-3 option-step left" ng-click="$ctrl.setFollow('Atacado e Distribuição')">
+                        <div class="col-md-3 option-step left  area-3" ng-click="$ctrl.setFollow('Atacado e Distribuição')">
                             <i class="material-icons">store</i>
                             <label>Atacado e Distribuição</label>
                         </div>
-                        <div class="col-md-3 option-step left" ng-style="{'color': $ctrl.infoFollow ? '#e41555' : ''}" ng-click="$ctrl.infoFollow = !$ctrl.infoFollow">
+                        <div class="col-md-3 option-step left  area-4" ng-style="{'color': $ctrl.infoFollow ? '#e41555' : ''}" ng-click="$ctrl.infoFollow = !$ctrl.infoFollow">
                             <i class="material-icons">help</i>
                             <label>Conta pra gente</label>
                         </div>
@@ -309,7 +309,7 @@
                             </div>
                         </div>
 
-                        <button class="btn-register" ng-disabled="!$ctrl.isValidContinue() || $ctrl.loading" ng-click="$ctrl.continue()">
+                        <button class="btn-register" ng-disabled="!$ctrl.isValidContinue() || $ctrl.loading" ng-click="$ctrl.create()">
                             Próximo
                         </button>
 

@@ -120,6 +120,10 @@ let RegisterComponent = {
             ctrl.step--;
         }
 
+        ctrl.create = () => {
+            console.log(ctrl.user);
+        }
+
     }]
 }
 
