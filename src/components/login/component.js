@@ -129,7 +129,7 @@ let LoginComponent = {
 
     </section>
   `,
-  controller: ['GumgaLoginService', '$timeout', '$scope', function(GumgaLoginService, $timeout, $scope) {
+  controller: ['GumgaLoginService', '$timeout', '$scope', '$attrs', function(GumgaLoginService, $timeout, $scope, $attrs) {
     let ctrl = this;
     ctrl.loginText = 'Entrar';
     ctrl.changeOrganizationText = 'Continuar';
@@ -215,6 +215,24 @@ let LoginComponent = {
                 ctrl.onLogin({user: resp.data, organizations: undefined});
             });
         }, error => {
+          if(error.data && error.data.response){
+            switch(error.data.response){
+              case 'NO_USER':
+              case 'BAD_PASSWORD':
+                ctrl.showMessage('error', $attrs.textBadPassword || 'E-mail ou senha estão incorretos.');
+                break;
+              case 'NO_TOKEN':
+              case 'TOKEN_EXPIRED':
+                ctrl.showMessage('error', $attrs.textTokenExpired || 'Sua sessão expirou, faça o login novamente.');
+                break;
+              case 'INSTANCE_INACTIVE':
+                ctrl.showMessage('error', $attrs.textInstanceInactive || 'Sua conta está desativada temporariamente.');
+                break;
+              case 'NO_INACTIVE':
+                ctrl.showMessage('error', $attrs.textNoInstance || 'Não há instâncias para sua organização.');
+                break;
+            }
+          }
           ctrl.loginText = 'Entrar';
         });
     }

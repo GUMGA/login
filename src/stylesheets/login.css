@@ -67,7 +67,7 @@ section.branding-box {
 }*/
 
 .gumga-login-error{
-    position: absolute;
+    position: fixed;
     width: 100%;
     padding: 10px;
     bottom: 0;
