@@ -20,7 +20,7 @@ let RegisterComponent = {
         }
 
         ctrl.$onInit = () => {
-            ctrl.step = 1;
+            ctrl.step = 7;
             ctrl.user = {
                 email: params['email']
             }
@@ -121,7 +121,31 @@ let RegisterComponent = {
         }
 
         ctrl.create = () => {
-            console.log(ctrl.user);
+            ctrl.loading = true;
+            GumgaLoginService.registerSaaS({
+                name: ctrl.user.name,
+                email: ctrl.user.email,
+                password: ctrl.user.password,
+                followUp: ctrl.user.follow,
+                organizationName: ctrl.user.organization,
+                organizationContributors: ctrl.user.organizationSize,
+                role: ctrl.user.type,
+                type: ctrl.user.typePerson,
+                address: ctrl.user.address,
+            }).then(resp => {
+                if(resp.status == 200){
+
+                }else{
+
+                }
+                delete ctrl.loading;
+            }, err => {
+                delete ctrl.loading;
+            });
+        }
+
+        ctrl.goToLogin = () => {
+            location.href = location.origin;
         }
 
     }]

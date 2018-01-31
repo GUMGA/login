@@ -4,7 +4,7 @@ angular
 
     $scope.configuration = {
         // appURL : 'http://192.168.253.246:8080/dashboard-api'
-        appURL : 'https://gumga.studio/dashboard-api'
+        appURL : 'http://localhost:8084/mobiage-api'
         // appURL : 'https://gumga.studio/dashboard-api'
     };
 

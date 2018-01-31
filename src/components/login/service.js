@@ -50,6 +50,10 @@ export default function GumgaLoginService($http, $window) {
 
   Service.initConfiguration = _configuration => Service.configuration = _configuration;
 
+  Service.registerSaaS = data => {
+    return $http.post(Service.configuration['appURL'].concat('/public/mobiage-sass/create-account'), data);
+  }
+
   return Service;
 }
 
