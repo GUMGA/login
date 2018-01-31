@@ -3,7 +3,7 @@ let RegisterComponent = {
     bindings: {
     },
     template: require('./register.html'),
-    controller: ['GumgaLoginService', '$timeout', '$scope', function (GumgaLoginService, $timeout, $scope) {
+    controller: ['GumgaLoginService', '$timeout', '$scope', '$element', function (GumgaLoginService, $timeout, $scope, $element) {
         let ctrl = this;
         const params = GumgaLoginService.getUrlVars();
 
@@ -20,11 +20,14 @@ let RegisterComponent = {
         }
 
         ctrl.$onInit = () => {
-            ctrl.step = 7;
+            ctrl.step = 1;
             ctrl.user = {
                 email: params['email']
             }
             ctrl.initAutoComplete();
+            if(ctrl.user.email){
+                ctrl.blurEmail();
+            }
         }
 
         ctrl.initAutoComplete = () => {
@@ -103,7 +106,10 @@ let RegisterComponent = {
 
         ctrl.blurEmail = () => {
             GumgaLoginService.verifiedUser(ctrl.user.email).then(resp => {
-                console.log(resp);
+                ctrl.emailStatus = resp.data.response;
+                if(ctrl.emailStatus == 'OK'){
+                    $element.find('input[type="email"]').addClass('ng-touched');
+                }
             }, err => {
             });
         };
@@ -134,9 +140,7 @@ let RegisterComponent = {
                 address: ctrl.user.address,
             }).then(resp => {
                 if(resp.status == 200){
-
-                }else{
-
+                    ctrl.step = 7;
                 }
                 delete ctrl.loading;
             }, err => {

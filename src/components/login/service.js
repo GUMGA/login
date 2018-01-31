@@ -10,7 +10,7 @@ export default function GumgaLoginService($http, $window) {
   }
 
   Service.verifiedUser = email => {
-    return $http.get(Service.configuration['appURL'].concat('/public/token/verified/'.concat(email)));
+    return $http.get(Service.configuration['appURL'].concat('/public/token/verified/'.concat(email).concat('/')));
   }
 
   Service.getUrlVars = () => {

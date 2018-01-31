@@ -37,9 +37,9 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <input type="email" autocomplete="off" ng-model="$ctrl.user.email" ng-blur="$ctrl.blurEmail()" ng-class="{'input-error': (!$ctrl.user.email || !$ctrl.isValidEmail($ctrl.user.email))}"
+                                    <input type="email" autocomplete="off" ng-model="$ctrl.user.email" ng-blur="$ctrl.blurEmail()" ng-class="{'input-error': ($ctrl.emailStatus == 'OK' || !$ctrl.user.email || !$ctrl.isValidEmail($ctrl.user.email))}"
                                         placeholder="Seu E-mail" class="form-control">
-                                    <i class="material-icons" title="Informe um endereço de e-mail válido">close</i>
+                                    <i class="material-icons" title="{{$ctrl.emailStatus == 'OK' ? 'Endereço de e-mail já está sendo utilizado' : 'Informe um endereço de e-mail válido'}}">close</i>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                             </div>
                         </div>
 
-                        <button class="btn-register" ng-disabled="!$ctrl.isValidContinue() || $ctrl.loading" ng-click="$ctrl.continue()">
+                        <button class="btn-register" ng-disabled="!$ctrl.isValidContinue() || $ctrl.loading || $ctrl.emailStatus == 'OK'" ng-click="$ctrl.continue()">
                             {{$ctrl.config.textBtnStepOne}}
                         </button>
 

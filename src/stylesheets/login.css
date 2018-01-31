@@ -589,6 +589,7 @@ gl-login input.form-control.ng-touched.input-error + i {
     color: #FE6239;
     border-radius: 12px;
     display: block;
+    cursor: pointer;
 }
 
 gl-login i.icon-left {
