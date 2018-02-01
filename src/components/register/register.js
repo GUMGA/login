@@ -7,6 +7,17 @@ let RegisterComponent = {
         let ctrl = this;
         const params = GumgaLoginService.getUrlVars();
 
+        var config = {
+            apiKey: "AIzaSyBOev5icnmyLi8gacBt7Rd00yoi-E-isO8",
+            authDomain: "kigi-193622.firebaseapp.com",
+            databaseURL: "https://kigi-193622.firebaseio.com",
+            projectId: "kigi-193622",
+            storageBucket: "",
+            messagingSenderId: "277774252950"
+          };
+          
+        firebase.initializeApp(config);
+
         ctrl.config = {
             titleStepOne: angular.element('gl-login').attr('register-title-step-one') || 'Ebaaa!!!',
             subTitleStepOne: angular.element('gl-login').attr('register-subtitle-step-one') || 'Estamos muitos felizes por você topar o desafio ;)',
@@ -126,9 +137,9 @@ let RegisterComponent = {
             ctrl.step--;
         }
 
-        ctrl.create = () => {
+        ctrl.create = () => {            
             ctrl.loading = true;
-            GumgaLoginService.registerSaaS({
+            let user = {
                 name: ctrl.user.name,
                 email: ctrl.user.email,
                 password: ctrl.user.password,
@@ -138,7 +149,9 @@ let RegisterComponent = {
                 role: ctrl.user.type,
                 type: ctrl.user.typePerson,
                 address: ctrl.user.address,
-            }).then(resp => {
+            };
+            firebase.database().ref('users/').push(user);
+            GumgaLoginService.registerSaaS(user).then(resp => {
                 if(resp.status == 200){
                     ctrl.step = 7;
                 }
