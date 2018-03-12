@@ -167,8 +167,8 @@ let LoginComponent = {
         console.error("Please enter the setup object for the gumga login.");
       }
       GumgaLoginService.initConfiguration(ctrl.configuration);
-      params['ticket'] = params['ticket'].substring(0, params['ticket'].lastIndexOf('#'));
       if (params['ticket']) {
+        params['ticket'] = params['ticket'].substring(0, params['ticket'].lastIndexOf('#'));
         GumgaLoginService.searchTicket(params['ticket'])
           .then(resp => {
             if (resp.data.response == 'OK') {
