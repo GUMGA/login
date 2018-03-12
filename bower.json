@@ -1,9 +1,8 @@
 {
   "name": "gumga-login",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "homepage": "https://github.com/GUMGA/login",
   "authors": [
-    "Gui Seek <guiseek@gmail.com>",
     "Gui Seek <guiseek@gmail.com>",
     "Mateus Miranda <info.mateusmiranda@gmail.com>"
   ],
